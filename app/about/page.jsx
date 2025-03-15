@@ -7,7 +7,6 @@ export default function about() {
   return (
     <>
       <BackgroundBeamsWithCollision />
-      {/* <CanvasRevealEffect /> */}
       <TracingBeam />
     </>
   );

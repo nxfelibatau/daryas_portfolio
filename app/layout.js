@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
       <body className="bg-black">
         <header className="relative">
           <div className="body">
-            <div className="main-tool-bar bg-main">
+            <div className="main-tool-bar bg-black border border-b-white">
               <div className="container mx-auto">
                 <div className="flex flex-wrap justify-between p-2">
                   <div className="p-2 text-bone">Darya Mansouri</div>
@@ -49,7 +49,7 @@ export default function RootLayout({ children }) {
                       <User size={24} />
                     </Link>
                   </div>
-                  <div className="bg-mainS p-2 rounded text-bone">
+                  <div className="bg-black border border-white p-2 rounded text-bone">
                     Get started
                   </div>
                 </div>

@@ -2,18 +2,30 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import dynamic from "next/dynamic"; // Prevents server-side rendering for this component
 import styles from "../styles/Animation.module.css";
+import Link from "next/link";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 function Home() {
   const elementRef = useRef(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      splitText(); // Safely call splitText in the client
-      gsap.to("svg", {
+      splitText();
+
+      gsap.to(".Link", {
+        scale: 1.5,
+        opacity: 0.5,
+        duration: 1,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+      });
+
+      gsap.to(".animated-svg", {
         repeat: -1,
         duration: 10,
         rotate: 360,
@@ -59,7 +71,13 @@ function Home() {
             ease: "steps(6)",
           },
           "<"
-        );
+        )
+        .add(() => {
+          gsap.to(window, {
+            duration: 1.5,
+            scrollTo: { y: "100vh", autoKill: true },
+          });
+        });
     }
   }, []);
 
@@ -82,10 +100,11 @@ function Home() {
         <div className={`${styles.body}`}>
           <h1 className={`text-bone ${styles.h1}`} data-split>
             Hey! I'm Darya Mansouri. I'm currently studying Computer Programming
-            and Analisis at George Brown college in Toronto.
+            and Analysis at George Brown College in Toronto.
           </h1>
           <div className={`${styles.svgbox} ${styles.svgbox1}`}>
             <svg
+              className="animated-svg"
               id="svg1"
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
@@ -105,6 +124,7 @@ function Home() {
           </div>
           <div className={`${styles.svgbox} ${styles.svgbox2}`}>
             <svg
+              className="animated-svg"
               id="svg2"
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
@@ -122,6 +142,11 @@ function Home() {
               />
             </svg>
           </div>
+        </div>
+        <div className="bg-black">
+          <Link href="/about" className={`flex justify-center mb-10 text-bone Link ${styles.Link}`}>
+            Click to continue
+          </Link>
         </div>
       </section>
     </>

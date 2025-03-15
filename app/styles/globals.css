@@ -3,31 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --my-shadow: #E5E7EB;
-  --my-sky: #3B82F6;
-  --my-grass: #10B981;
-  --my-bone:#F9FAFB;
-  --my-main:#7E702F;
-  --my-mainS:#732625;
-  --my-dead:#1F2937;
-  --my-dead:#1F2937;
-  --my-dead:#1F2937;
-  --my-dead:#1F2937;
-  --my-dead:#1F2937;
-  --my-dead:#1F2937;
-  --my-dead:#1F2937;
-}
-@font-face {
-  font-display: block;
-  font-family: Mori;
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://assets.codepen.io/16327/PPMori-Regular.woff) format("woff");
+  --my-shadow: #e5e7eb;
+  --my-sky: #3b82f6;
+  --my-grass: #10b981;
+  --my-bone: #f9fafb;
+  --my-main: #7e702f;
+  --my-mainS: #732625;
 }
 
 .body {
-  font-family: Mori;
-  font-weight: 300;
+  font-family: "Pangolin", cursive;
+  letter-spacing: 0.05em;
   margin: 0;
   padding: 0;
 }
@@ -44,6 +30,7 @@
   left: 0;
   top: 0;
   transition: ease 0.4s;
+  z-index:50;
 }
 
 .main-tool-bar--scrolled {

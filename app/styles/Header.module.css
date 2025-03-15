@@ -27,9 +27,10 @@
   left: 0;
   top: 0;
   transition: ease 0.4s;
-  &--scrolled {
-    height: 40px;
-  }
+}
+
+.main-tool-bar--scrolled {
+  height: 40px;
 }
 
 .scrollable-area {

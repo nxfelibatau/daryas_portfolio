@@ -1,28 +1,46 @@
-import React from "react";
+"use client"
+import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import '../styles/globals.css';
 import Link from "next/link";
 
-export default function Header() {
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
+const Header = () => {
+  useEffect(() => {
+    // GSAP ScrollTrigger setup
+    ScrollTrigger.create({
+      start: "top -80",
+      end: 99999,
+      toggleClass: { className:"main-tool-bar--scrolled", targets: ".main-tool-bar" }
+    });
+  }, []);
+
   return (
-    <header className="shadow-sm shadow-shadow bg-main pt-3 pb-2 flex fixed w-full">
-      <div className="container mx-auto">
-        <div className="flex flex-wrap justify-between">
-          <p className="text-dead p-2 bg-mainS rounded-full">Portfolio</p>
-          <div className="flex gap-4 p-2">
-            <Link className="text-dead" href="/">
-              Home
-            </Link>
-            <Link className="text-dead" href="/">
-              Courses
-            </Link>
-            <Link className="text-dead" href="/">
-              Projects
-            </Link>
+    <div className="body">
+      <div className="main-tool-bar bg-main">
+        <div className="container mx-auto">
+          <div className="flex flex-wrap justify-between p-2">
+            <div className="p-2 text-bone">
+              Darya Mansouri
+            </div>
+            <div className="flex gap-4 p-2 text-bone">
+              <Link href="/">Home</Link>
+              <Link href="/">Projects</Link>
+              <Link href="/">Courses</Link>
+            </div>
+            <div className="bg-mainS p-2 rounded text-bone">
+              Get started
+            </div>
           </div>
-          <Link className="bg-mainS p-2 rounded-lg text-dead" href="/">
-            Get started
-          </Link>
         </div>
       </div>
-    </header>
+      <div className="scrollable-area">
+        {/* Content here */}
+      </div>
+    </div>
   );
-}
+};
+export default Header;

@@ -7,8 +7,8 @@
   --my-sky: #3B82F6;
   --my-grass: #10B981;
   --my-bone:#F9FAFB;
-  --my-main:#F3E5A5;
-  --my-mainS:#E89B9B;
+  --my-main:#7E702F;
+  --my-mainS:#732625;
   --my-dead:#1F2937;
   --my-dead:#1F2937;
   --my-dead:#1F2937;
@@ -16,4 +16,40 @@
   --my-dead:#1F2937;
   --my-dead:#1F2937;
   --my-dead:#1F2937;
+}
+@font-face {
+  font-display: block;
+  font-family: Mori;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://assets.codepen.io/16327/PPMori-Regular.woff) format("woff");
+}
+
+.body {
+  font-family: Mori;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+
+.main-tool-bar {
+  height: 80px;
+  color: #0e100f;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  transition: ease 0.4s;
+}
+
+.main-tool-bar--scrolled {
+  height: 40px;
+}
+
+.scrollable-area {
+  height: 200vh;
 }

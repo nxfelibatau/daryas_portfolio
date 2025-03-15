@@ -1,63 +1,66 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import dynamic from "next/dynamic"; // Prevents server-side rendering for this component
 import styles from "../styles/Animation.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Home() {
+function Home() {
   const elementRef = useRef(null);
+
   useEffect(() => {
-    splitText();
+    if (typeof window !== "undefined") {
+      splitText(); // Safely call splitText in the client
+      gsap.to("svg", {
+        repeat: -1,
+        duration: 10,
+        rotate: 360,
+        ease: "steps(40)",
+      });
 
-    gsap.to("svg", {
-      repeat: -1,
-      duration: 10,
-      rotate: 360,
-      ease: "steps(40)",
-    });
+      gsap.to("h1 span", {
+        repeat: -1,
+        duration: 1,
+        y: () => gsap.utils.random(6, -6),
+        rotate: () => gsap.utils.random(8, -8),
+        scale: () => gsap.utils.random(0.8, 1.1),
+        ease: "steps(2)",
+        repeatRefresh: true,
+        stagger: 0.1,
+      });
 
-    gsap.to("h1 span", {
-      repeat: -1,
-      duration: 1,
-      y: "random(6, -6)",
-      rotate: "random(8, -8)",
-      scale: "random(0.8, 1.1)",
-      ease: "steps(2)",
-      repeatRefresh: true,
-      stagger: 0.1,
-    });
-
-    const scrollAnim = gsap.timeline({
-      scrollTrigger: {
-        trigger: "body",
-        scrub: 0.6,
-        toggleActions: "restart none none none",
-      },
-    });
-
-    scrollAnim
-      .to(`.${styles.svgbox1}`, {
-        x: "50vw",
-        ease: "steps(30)",
-      })
-      .to(
-        `.${styles.svgbox2}`,
-        {
-          x: "-50vw",
-          ease: "steps(20)",
+      const scrollAnim = gsap.timeline({
+        scrollTrigger: {
+          trigger: "body",
+          scrub: 0.6,
+          toggleActions: "restart none none none",
         },
-        "<"
-      )
-      .to(
-        "h1",
-        {
-          y: -30,
-          ease: "steps(6)",
-        },
-        "<"
-      );
+      });
+
+      scrollAnim
+        .to(`.${styles.svgbox1}`, {
+          x: "50vw",
+          ease: "steps(30)",
+        })
+        .to(
+          `.${styles.svgbox2}`,
+          {
+            x: "-50vw",
+            ease: "steps(20)",
+          },
+          "<"
+        )
+        .to(
+          "h1",
+          {
+            y: -30,
+            ease: "steps(6)",
+          },
+          "<"
+        );
+    }
   }, []);
 
   const splitText = () => {
@@ -77,8 +80,9 @@ export default function Home() {
     <>
       <section className={`${styles.html}`}>
         <div className={`${styles.body}`}>
-          <h1 className={`${styles.h1}`} data-split>
-            Scroll Down to see more!
+          <h1 className={`text-bone ${styles.h1}`} data-split>
+            Hey! I'm Darya Mansouri. I'm currently studying Computer Programming
+            and Analisis at George Brown college in Toronto.
           </h1>
           <div className={`${styles.svgbox} ${styles.svgbox1}`}>
             <svg
@@ -123,3 +127,5 @@ export default function Home() {
     </>
   );
 }
+
+export default dynamic(() => Promise.resolve(Home), { ssr: false });

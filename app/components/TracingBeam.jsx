@@ -43,14 +43,33 @@ export default function TracingBeamDemo() {
             </div>
           </div>
         ))}
-        <div className="bg-black">
-          <Link
-            href="/projects"
-            className={`flex justify-center mb-10 text-bone Link`}
-          >
-            Click to continue
-          </Link>
-        </div>
+      </div>
+      <div className="mt-44 flex flex-col items-center">
+        <p className="text-3xl text-bone">Resume</p>
+        <p className="text-xl mt-2 text-center text-bone">
+          Download my resume to learn more about my professional background and
+          experiences.
+        </p>
+        <a href="/ّFinal_resume.pdf" download>
+          <button className="px-4 hover:bg-black m-5 py-2 bg-white text-black rounded-lg hover:text-white font-semibold bg-transparent border border-white transition">
+            Download Resume
+          </button>
+        </a>
+      </div>
+      <div className="mt-20 flex flex-col items-center">
+        <p className="text-3xl text-bone">Education</p>
+        <p className="text-xl mt-2 text-center text-bone">
+          Computer Programming And Analysis, Advanced Diploma, April 2025 George
+          Brown College, Toronto Ontario
+        </p>
+      </div>
+      <div className="bg-black mt-20">
+        <Link
+          href="/projects"
+          className={`flex justify-center mb-10 text-bone Link`}
+        >
+          Click to continue
+        </Link>
       </div>
     </TracingBeam>
   );

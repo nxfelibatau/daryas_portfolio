@@ -27,7 +27,8 @@ const projects = [
   },
   {
     title: "Python Labs",
-    description: "Step-by-step Python learning through practical lab exercises.",
+    description:
+      "Step-by-step Python learning through practical lab exercises.",
     link: "https://github.com/Daryamn88/COMP2152",
   },
   {
@@ -44,7 +45,9 @@ export default function GlowingStarsBackgroundCardPreview() {
       {projects.map((project, index) => (
         <GlowingStarsBackgroundCard key={index}>
           <GlowingStarsTitle>{project.title}</GlowingStarsTitle>
-          <GlowingStarsDescription>{project.description}</GlowingStarsDescription>
+          <GlowingStarsDescription>
+            {project.description}
+          </GlowingStarsDescription>
           <a
             href={project.link}
             target="_blank"
@@ -55,6 +58,79 @@ export default function GlowingStarsBackgroundCardPreview() {
           </a>
         </GlowingStarsBackgroundCard>
       ))}
+      <div className="p-6 max-w-md max-h-[27rem] h-full w-full rounded-xl border border-[#eaeaea] dark:border-neutral-600 shadow-lg">
+        <h2 className="text-xl font-bold text-white">Contact</h2>
+        <p className="text-sm text-gray-200">
+          Here is how you can contact me!
+        </p>
+        <div className="flex gap-4">
+          <a
+            href="https://github.com/Daryamn88"
+            className="text-blue-400 underline transition"
+          >
+            <i className="fab fa-github fa-shake"></i> Github
+          </a>
+          <a
+            href="https://www.linkedin.com/in/darya-mansouri-35b705267"
+            className="text-blue-400 underline transition"
+          >
+            <i className="fa-brands fa-linkedin"></i> Linkedin
+          </a>
+        </div>
+        <form
+          action="https://formspree.io/f/mnqeowwg"
+          method="POST"
+          className="flex flex-col gap-3"
+        >
+          <div className="flex flex-col">
+            <label htmlFor="name" className="text-white text-sm">
+              <i className="fa-solid fa-circle-user"></i> Name:
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              className="p-2 rounded-md bg-white text-gray-800 outline-none border-none"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="email" className="text-white text-sm">
+              <i className="fas fa-envelope"></i> Email:
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="_replyto"
+              required
+              className="p-2 rounded-md bg-white text-gray-800 outline-none border-none"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="message" className="text-white text-sm">
+              <i className="fa-solid fa-message"></i> Message:
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              className="p-2 rounded-md bg-white text-gray-800 outline-none border-none h-24 resize-none"
+            ></textarea>
+          </div>
+          <input
+            type="hidden"
+            name="_subject"
+            value="New submission from your website!"
+          />
+
+          <button
+            type="submit"
+            className="mt-2 p-2 rounded-lg bg-transparent border border-white hover:text-black text-white font-semibold hover:bg-white transition"
+          >
+            Send
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

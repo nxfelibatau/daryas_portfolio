@@ -25,6 +25,7 @@ module.exports = {
         main: "var(--my-main)",
         dead: "var(--my-dead)",
         mainS: "var(--my-mainS)",
+        complementary:"var(--my-complementary)",
       },
     },
   },

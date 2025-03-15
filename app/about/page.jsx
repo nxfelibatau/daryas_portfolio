@@ -1,10 +1,14 @@
-import React from 'react'
-import TracingBeam from '../components/TracingBeam'
+import React from "react";
+import TracingBeam from "../components/TracingBeam";
+import BackgroundBeamsWithCollision from "../components/BackgroundBeamsWithCollision";
+import CanvasRevealEffect from "../components/CanvasRevealEffect";
 
 export default function about() {
   return (
     <>
-    <TracingBeam/>
+      <BackgroundBeamsWithCollision />
+      {/* <CanvasRevealEffect /> */}
+      <TracingBeam />
     </>
-  )
+  );
 }

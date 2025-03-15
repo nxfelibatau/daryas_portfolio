@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import "./styles/globals.css";
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import { Home, FolderOpen, User } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,7 +14,10 @@ export default function RootLayout({ children }) {
     ScrollTrigger.create({
       start: "top -80",
       end: 99999,
-      toggleClass: { className:"main-tool-bar--scrolled", targets: ".main-tool-bar" }
+      toggleClass: {
+        className: "main-tool-bar--scrolled",
+        targets: ".main-tool-bar",
+      },
     });
   }, []);
   return (
@@ -26,9 +30,24 @@ export default function RootLayout({ children }) {
                 <div className="flex flex-wrap justify-between p-2">
                   <div className="p-2 text-bone">Darya Mansouri</div>
                   <div className="flex gap-4 p-2 text-bone">
-                    <Link href="/">Home</Link>
-                    <Link href="/projects">Projects</Link>
-                    <Link href="/about">About</Link>
+                    <Link className="hidden md:block" href="/">
+                      Home
+                    </Link>
+                    <Link className="block md:hidden" href="/">
+                      <Home size={24} />
+                    </Link>
+                    <Link className="hidden md:block" href="/projects">
+                      Projects
+                    </Link>
+                    <Link className="block md:hidden" href="/projects">
+                      <FolderOpen size={24} />
+                    </Link>
+                    <Link className="hidden md:block" href="/about">
+                      About
+                    </Link>
+                    <Link className="block md:hidden" href="/about">
+                      <User size={24} />
+                    </Link>
                   </div>
                   <div className="bg-mainS p-2 rounded text-bone">
                     Get started

@@ -1,10 +1,23 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "./ui/tracing-beam";
+import Link from "next/link";
+import gsap from "gsap";
 
 export default function TracingBeamDemo() {
+  useEffect(() => {
+    gsap.to(".Link", {
+      scale: 1.5,
+      opacity: 0.5,
+      duration: 1,
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+    });
+  }, []);
+
   return (
     <TracingBeam className="px-6 z-0 mt-24">
       <div className="max-w-2xl mx-auto antialiased pt-4 relative">
@@ -30,6 +43,14 @@ export default function TracingBeamDemo() {
             </div>
           </div>
         ))}
+        <div className="bg-black">
+          <Link
+            href="/projects"
+            className={`flex justify-center mb-10 text-bone Link`}
+          >
+            Click to continue
+          </Link>
+        </div>
       </div>
     </TracingBeam>
   );
@@ -118,13 +139,15 @@ const dummyContent = [
     description: (
       <>
         <p className="text-xl">
-          Skilled in iOS app development using Swift and UIKit, creating intuitive and 
-          visually appealing mobile applications. Experienced in building responsive 
-          UI components, handling user interactions, and optimizing app performance.
+          Skilled in iOS app development using Swift and UIKit, creating
+          intuitive and visually appealing mobile applications. Experienced in
+          building responsive UI components, handling user interactions, and
+          optimizing app performance.
         </p>
         <p className="text-xl">
-          Passionate about delivering smooth and engaging user experiences, following 
-          Apple's design guidelines, and integrating modern iOS frameworks.
+          Passionate about delivering smooth and engaging user experiences,
+          following Apple's design guidelines, and integrating modern iOS
+          frameworks.
         </p>
       </>
     ),

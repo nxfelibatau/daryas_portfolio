@@ -98,9 +98,8 @@ function Home() {
     <>
       <section className={`${styles.html}`}>
         <div className={`${styles.body}`}>
-          <h1 className={`text-bone ${styles.h1}`} data-split>
-            Hey! I'm Darya Mansouri. I'm currently studying Computer Programming
-            and Analysis at George Brown College in Toronto.
+        <h1 className={`text-bone text-sm md:text-xl flex ${styles.h1}`} data-split>
+            Hey! I'm Darya Mansouri. Welcome to my Portfolio.{" "}
           </h1>
           <div className={`${styles.svgbox} ${styles.svgbox1}`}>
             <svg
@@ -144,7 +143,10 @@ function Home() {
           </div>
         </div>
         <div className="bg-black">
-          <Link href="/about" className={`flex justify-center mb-10 text-bone Link ${styles.Link}`}>
+          <Link
+            href="/about"
+            className={`flex justify-center mb-10 text-bone Link ${styles.Link}`}
+          >
             Click to continue
           </Link>
         </div>

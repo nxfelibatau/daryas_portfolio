@@ -13,13 +13,20 @@ This repository contains the portfolio website developed for **Darya**, showcasi
 - 🚀 **Deployed on Vercel** – Always live and updated  
 
 ## 🔧 How to Run the Project?
-1. Clone the repository:  
+1. Clone the repository:
+
    git clone https://github.com/nxfelibatau/daryas_portfolio.git
+
 2. Navigate to the Project Folder:
-   cd daryas_portfolio
+
+   cd uniapp
+
 3. Install Dependencies:
+   
    npm install
+
 4. Run the Development Server:
+
    npm run dev
 
 Now, open http://localhost:3000 in your browser to see the project running! 🚀
